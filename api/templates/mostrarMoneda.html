@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <title>Cryptomonedas</title>
+    <link rel="stylesheet" type="text/css" href="static/css/style.css" media="screen" />
+<style>body{background-image: url("https://www.rentafija.com/wp-content/uploads/2019/03/como-comprar-bitcoins-y-criptomonedas.jpg");background-size: 100%;color: seashell;}.info{font-size: 20px;text-align: center;padding-right: 750px;padding-top: 20px;}ul {list-style-type: none;margin: 0;padding: 0;overflow: hidden;background-color: transparent; border-radius: 20px 20px 20px 20px;}li{float: left;font-size: 20px;text-decoration: none;padding: 20px; width:5%;}a{color: seashell;text-decoration: none;}</style>
+</head>
+
+    <body>
+
+        <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/verTop5">Top 5</a></li>
+            <li><a href="/verTop20">Top 20</a></li>
+        </ul>
+
+        <div class="info">
+            {% for dato in datos %}
+                <h1 style="text-align: center;">{% print(dato['name']) %}</h1>
+                Id: {% print(dato['id']) %}<br>
+                Symbol: {% print(dato['symbol']) %}<br>
+                Slug: {% print(dato['slug']) %}<br>
+                Num market pairs: {% print(dato['num_market_pairs']) %}<br>
+                Date added: {% print(dato['data_added']) %}<br>
+                Tags: {% print(dato['tags']) %}<br>
+                Max supply: {% print(dato['max_supply']) %}<br>
+                Circulating supply: {% print(dato['circulating_supply']) %}<br>
+                Total supply: {% print(dato['total_supply']) %}<br>
+                Platform: {% print(dato['platform']) %}<br>
+                Cmc rank: {% print(dato['cmc_rank']) %}<br>
+                Last upddated: {% print(dato['last_updated']) %}<br>
+                Price: {% print(dato['price']) %}<br>
+                Volume 24h: {% print(dato['volume_24h']) %}<br>
+                Percent change 1h: {% print(dato['percent_change_1h']) %}<br>
+                Percent change 24h: {% print(dato['percent_change_24h']) %}<br>
+                Percent change 7d: {% print(dato['percent_change_7d']) %}<br>
+                Market cap: {% print(dato['market_cap']) %}<br>
+                Last updated: {% print(dato['last_updated']) %}
+            {%endfor%} 
+        </div>
+
+    </body>
+</html>

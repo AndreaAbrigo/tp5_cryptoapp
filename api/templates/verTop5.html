@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <title>Cryptomonedas</title>
+    <link rel="stylesheet" type="text/css" href="static/css/style.css" media="screen" />
+    <style>body{background-color: black;background-size: 100%; color: seashell;}.card { width: 40rem;margin: auto auto; font-family: Arial, Helvetica, sans-serif;border: seashell 1px solid; border-radius: 20px 20px 20px 20px;padding: 10px;} .col{padding-left: 30px;}tr{padding-right: 30px;}.btn-ver{text-decoration: none;float:right;color:black; background-color: seashell;border-radius: 15px;border: 3px double black;}ul {list-style-type: none;margin: 0;padding: 0;overflow: hidden;background-color: transparent;border-radius: 20px 20px 20px 20px;}li{float: left;font-size: 20px; text-decoration: none; padding: 20px; width:5%;}a{color: seashell;text-decoration: none;}</style>
+</head>
+<body>
+
+    <ul>
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/verTop5">Top 5</a></li>
+        <li><a href="/verTop20">Top 20</a></li>
+     </ul>
+
+     <center><h1>Top 5 de monedas</h1></center>
+     
+    {% for dato in datos %}
+        <div class="card">
+                <table>
+                        <tr style="padding-top: 50px;"><b style="font-size: 30px;">{% print(dato['name']) %}</b></tr>
+                    <tr>
+                        <td><b>Id: </b>{% print(dato['id'])%}</td>
+                        <td class="col"><b>Symbol: </b>{% print(dato['symbol']) %}</td>
+                        <td class="col"><b>Rank: </b>{% print(dato['cmc_rank']) %}</td>
+                    </tr>
+                </table>
+                <form action="verTodaInformacion" method="POST">
+                    <div class="form-group">
+                      <input value="{{dato['name']}}" type="hidden" class="form-control" name="name" id="name">
+                      <input value="{{dato['rank']}}" type="hidden" class="form-control" name="rank" id="rank">
+                      <button class="btn-ver" type="submit">Más información</button>
+                    </div>
+                </form>
+                <br>
+                <br>
+        </div>
+        <br>
+    {%endfor%}
+</body>
+</html>
